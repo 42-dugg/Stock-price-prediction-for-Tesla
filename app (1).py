@@ -23,7 +23,7 @@ if uploaded_file is not None:
         df['avg_sentiment'] = 0  # fallback if no headlines
 
     # Make sure feature columns exist
-    feature_cols = ['Open', 'High', 'Low', 'Close/Last', 'Volume']
+    feature_cols = ['Open', 'High', 'Low', 'Close/Last', 'Volume', 'avg_sentiment']
     if all(col in df.columns for col in feature_cols):
         latest = df[feature_cols].tail(1)
         prediction = model.predict(latest)
